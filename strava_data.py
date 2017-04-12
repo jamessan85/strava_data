@@ -6,8 +6,8 @@ def code():
     return request.args.get('code')
 
 def get_code(data):
-    file_name = 'C:\log.txt'
-    with open(file_name, 'a') as text_file:
+    file_name = raw_input('Enter file name')
+    with open("C:/" + file_name + '.txt', 'a') as text_file:
         text_file.write(data + '\n')
 
 def run():
@@ -18,6 +18,10 @@ def run():
 @app.route('/')
 def home():
     return render_template('home.html')
+
+@app.route('/auth')
+def auth():
+    return render_template('auth.html')
 
 @app.route('/authgood')
 def exchange():

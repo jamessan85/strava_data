@@ -1,0 +1,13 @@
+a, h1 {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: floralwhite;
+}
+
+.navbar {
+    background-color: orangered;
+    color: white;
+}
+
