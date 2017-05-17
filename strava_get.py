@@ -38,7 +38,7 @@ def activity_get():
         elevation = int(unithelper.feet(activity.total_elevation_gain))
         avg = int(unithelper.miles_per_hour(activity.average_speed))
         max = int(unithelper.miles_per_hour(activity.max_speed))
-        data = {'Start Date':year_month, 'Ride Name':activity.name, 'Distance(Mi)': miles, 'Time':time, 'Elevation (Ft)': elevation,'Athlete Name': athlete.firstname + ' ' + athlete.lastname, 'Strava ID':athlete.id, 'Average Speed(Mph)':avg, 'Max Speed': max, 'Kudos': activity.kudos_count }
+        data = {'StartDate':year_month, 'RideName':activity.name, 'Distance': miles, 'Time':time, 'Elevation': elevation,'AthleteName': athlete.firstname + ' ' + athlete.lastname, 'StravaID':athlete.id, 'AverageSpeed':avg, 'MaxSpeed': max, 'Kudos': activity.kudos_count }
         json_str = json.dumps(data)
         with open("activities.json", "a") as f:
             f.write(json_str + "\n")

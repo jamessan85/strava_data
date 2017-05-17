@@ -11,3 +11,112 @@ body {
     color: white;
 }
 
+#totals {
+    font-size: 60px;
+    display: inline-block;
+}
+
+#likes{
+    font-size: 60px;
+    display: inline-block;
+}
+
+.glyphicon-thumbs-up {
+    font-size: 60px;
+}
+
+.dc-select-menu {
+   background: #f96f2a;
+   width: 80%;
+   border: none;
+   position: relative;
+   height: 31px;
+   font-size: 15px;
+   color: white;
+   vertical-align: middle;
+   text-align: center;
+   padding-top: 4px;
+   padding-bottom: 0px;
+
+}
+
+svg {
+    margin: 20px;
+}
+
+.extent {
+    opacity: 0.5;
+    background-color: #c0a16b;
+}
+
+.y-axis-label {
+    padding: 10px;
+}
+
+#chart-line-distance{
+    display: none;
+}
+
+#chart-line-avg{
+    display: none;
+}
+
+#elevation-chart{
+    display: none;
+}
+
+.bar{
+    fill: steelblue;
+}
+
+.glyphicon-circle-arrow-down {
+    font-size: 20px;
+}
+
+.group-glyph-text {
+    display: inline-block;
+}
+
+.hider1 {
+    display: inline-block;
+}
+
+.hider2 {
+    display: inline-block;
+}
+
+.hider3 {
+    display: inline-block;
+}
+
+.dc-chart .pie-slice :hover {
+    fill-opacity: 0.5;
+}
+
+.dc-chart .selected path {
+    stroke-width: 3;
+    stroke: rgba(0, 0, 0, 0.96);
+    fill-opacity: 1;
+}
+
+.row {
+    background-color: white;
+    margin: 5px;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.verticalAxis path {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}

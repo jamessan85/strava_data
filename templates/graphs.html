@@ -1,0 +1,75 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="jumbotron">
+<h1>Data is beautiful</h1>
+</div>
+<div class="container">
+<a class="reset" href="javascript:selectField.filterAll();hitspieChart.filterAll();dc.redrawAll();">reset all</a>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2 class="hider">Select Rider</h2>
+        </div>
+        <div class="col-md-3">
+             <h2>Years</h2>
+        </div>
+        <div class="col-md-3">
+            <h2>Distance Ridden</h2>
+        </div>
+        <div class="col-md-3">
+        </div>
+            <h2>Kudos</h2>
+        </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div id="rider-select"></div>
+        </div>
+        <div class="col-md-3">
+            <div id="chart-ring-year"></div>
+            <a class="reset" href="javascript:hitspieChart.filterAll();dc.redrawAll();">reset pie</a>
+        </div>
+        <div class="col-md-3">
+            <div id="totals"></div><span>miles</span>
+            <div class="fact"></div>
+        </div>
+        <div class="col-md-3">
+            <span class="glyphicon glyphicon-thumbs-up"></span><div id="likes"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="hider1">Distances</h2><span class="glyphicon glyphicon-circle-arrow-down hider1"></span>
+            <div id="chart-line-distance"></div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+                <h2 class="hider2">Max Speed</h2><span class="glyphicon glyphicon-circle-arrow-down hider2"></span>
+                <div id="chart-line-avg"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="hider3">Elevation</h2><span class="glyphicon glyphicon-circle-arrow-down hider3"></span>
+            <div id="elevation-chart"></div>
+        </div>
+    </div>
+<div class="row">
+        <div class="col-md-12">
+            <h2 class="hider3">Max Speed</h2><span class="glyphicon glyphicon-circle-arrow-down hider3"></span>
+            <div id="test"></div>
+        </div>
+    </div>
+</div>
+  <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/d3.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/dc.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
+  <script src="{{ url_for ('static', filename='js/script.js')}}"></script>
+{% endblock %}
+

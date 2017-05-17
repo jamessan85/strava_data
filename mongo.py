@@ -2,35 +2,14 @@ from flask import Flask, render_template, request
 from pymongo import MongoClient
 import json
 
-app = Flask(__name__)
-
 MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
 DBS_NAME = 'strava'
 COLLECTION_NAME = 'stravanew'
 
-def code():
-    return request.args.get('code')
+app = Flask(__name__)
 
-def get_code(data):
-    file_name = raw_input('Enter file name')
-    with open("C:/" + file_name + '.txt', 'a') as text_file:
-        text_file.write(data + '\n')
-
-def run():
-    data = code()
-    get_code(data)
-
-
-@app.route('/')
-def home():
-    return render_template('home.html')
-
-@app.route('/graphs')
-def graphs():
-    return render_template('graphs.html')
-
-@app.route("/data")
+@app.route("/strava")
 def strava_data():
     """
         A Flask view to serve the project data from
@@ -56,15 +35,5 @@ def strava_data():
         # Convert projects to a list in a JSON object and return the JSON data
         return json.dumps(list(projects))
 
-@app.route('/auth')
-def auth():
-    return render_template('auth.html')
-
-@app.route('/authgood')
-def exchange():
-    run()
-    return render_template('token_exchange.html')
-
-if __name__ == '__main__':
-    app.run()
-
+if __name__ == "__main__":
+    app.run(debug=True)

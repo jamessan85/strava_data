@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
-    <title>Strava Data - Simplified</title>
+    <title>Strava Data - Simplified testing</title>
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -16,9 +16,9 @@
                 <a class="navbar-brand">Strava Data - Simplified</a>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Page 1</a></li>
-              <li><a href="#">Page 2</a></li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/graphs">Graphs</a></li>
+              <li><a href="#">Info</a></li>
               <li><a href="/auth">Authenticate</a></li>
             </ul>
         </div>
@@ -28,13 +28,4 @@
      {% endblock %}
    </div>
 </body>
-<script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
-<script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>
-<script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
-<script src="{{ url_for ('static', filename='lib/js/d3.js')}}"></script>
-<script src="{{ url_for ('static', filename='lib/js/dc.js')}}"></script>
-<script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
-
-<script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
-<script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
 </html>
