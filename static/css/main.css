@@ -1,19 +1,41 @@
-a, h1 {
+p, h1, h2, h3, h4 {
     font-family: 'Poppins', sans-serif;
 }
 
+
+
 body {
-    background-color: floralwhite;
+    background: url("img/cyclebackgrey.jpg");
+    background-attachment: fixed;
 }
 
 .navbar {
-    background-color: orangered;
+    background-color: #f96f2a;
+}
+
+.navbar-default .navbar-nav>li>a{
     color: white;
+}
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.jumbotron {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.navbar-default {
+    border: none;
 }
 
 #totals {
     font-size: 60px;
     display: inline-block;
+}
+
+.navbar-default li{
+    color: white;
 }
 
 #likes{
@@ -27,7 +49,7 @@ body {
 
 .dc-select-menu {
    background: #f96f2a;
-   width: 80%;
+   width: 100%;
    border: none;
    position: relative;
    height: 31px;
@@ -37,6 +59,7 @@ body {
    text-align: center;
    padding-top: 4px;
    padding-bottom: 0px;
+    margin-top: 5px;
 
 }
 
@@ -65,8 +88,22 @@ svg {
     display: none;
 }
 
+
+svg {
+   padding: -5px;
+}
+
+
 .bar{
     fill: steelblue;
+}
+
+.line {
+    fill: steelblue;
+}
+
+rect .selected {
+    border:2px solid black;
 }
 
 .glyphicon-circle-arrow-down {
@@ -99,9 +136,11 @@ svg {
     fill-opacity: 1;
 }
 
+
 .row {
     background-color: white;
     margin: 5px;
+    width: 90%
 }
 
 .axis text {
@@ -119,4 +158,68 @@ svg {
     fill: none;
     stroke: black;
     shape-rendering: crispEdges;
+}
+
+rect:hover {
+    fill-opacity: 0.5;
+    stroke-width: 3;
+}
+
+.dc-chart g rect .selected{
+    fill: red;
+}
+
+.chart-title {
+    padding-left: 5px;
+}
+
+.infobox {
+    display: flex;
+    flex-direction: row;
+}
+
+.col-sm-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white ;
+    padding: 10px;
+    margin: 10px;
+}
+
+.col-sm-4 h4 {
+   text-align: center;
+}
+g .axis .y {
+    margin: 100px;
+}
+
+/*style tool tip*/
+
+/*for tooltip*/
+.hidden {
+    display: none;
+}
+
+.imgcircle {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button{
+    margin-top: 5px;
+    background-color: #f96f2a;
+}
+
+.btn .btn-success {
+    border: none;
+}
+
+.dc-chart {
+    display: flex;
+    justify-content: center;
 }

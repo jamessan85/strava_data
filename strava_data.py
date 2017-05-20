@@ -45,6 +45,13 @@ def strava_data():
         'Start Date': True, 'Distance(Mi)': True, 'Athlete Name': True
     }
 
+    FIELDSTEST = {
+        '_id': False, 'johnavg': True, 'jamesavg': True, 'StravaID': True, 'Elevation': True,
+        'Kudos': True, 'AverageSpeed': True,
+        'MaxSpeed': True, 'RideName': True, 'Time': True,
+        'StartDate': True, 'Distance': True, 'AthleteName': True
+    }
+
     # Open a connection to MongoDB using a with statement such that the
     # connection will be closed as soon as we exit the with statement
     with MongoClient(MONGODB_HOST, MONGODB_PORT) as conn:
@@ -64,6 +71,10 @@ def auth():
 def exchange():
     run()
     return render_template('token_exchange.html')
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
 
 if __name__ == '__main__':
     app.run()

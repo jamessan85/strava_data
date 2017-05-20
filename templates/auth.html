@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Authenticate</title>
@@ -7,11 +5,8 @@
 <body>
 {% extends "layout.html" %}
 {% block content %}
-
 <div class="jumbotron">
-<h1>Hello please authenticate</h1>
+<h1>Please authenticate</h1>
 <a href="https://www.strava.com/oauth/authorize?client_id=17090&response_type=code&redirect_uri=http://127.0.0.1:5000/authgood&approval_prompt=force"> click to authenticate </a>
 </div>
 {% endblock %}
-</body>
-</html>

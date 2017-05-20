@@ -23,11 +23,11 @@ client = Client(access_token = JAMES_TOKEN)
 athlete = client.get_athlete()
 activity = client.get_activity(16398103)
 
-def ath_data():
-    data = {'firstname': athlete.firstname, 'lasttname': athlete.lastname, 'id': athlete.id, 'city': athlete.city, 'friends': athlete.friend_count}
-    datafied = str(data)
-    json_data = json.dumps(datafied)
-    print json_data
+# def ath_data():
+#     data = {'firstname': athlete.firstname, 'lasttname': athlete.lastname, 'id': athlete.id, 'city': athlete.city, 'friends': athlete.friend_count}
+#     datafied = str(data)
+#     json_data = json.dumps(datafied)
+#     print json_data
 
 def activity_get():
     for activity in client.get_activities(after='2012', limit=0):
@@ -38,9 +38,10 @@ def activity_get():
         elevation = int(unithelper.feet(activity.total_elevation_gain))
         avg = int(unithelper.miles_per_hour(activity.average_speed))
         max = int(unithelper.miles_per_hour(activity.max_speed))
-        data = {'StartDate':year_month, 'RideName':activity.name, 'Distance': miles, 'Time':time, 'Elevation': elevation,'AthleteName': athlete.firstname + ' ' + athlete.lastname, 'StravaID':athlete.id, 'AverageSpeed':avg, 'MaxSpeed': max, 'Kudos': activity.kudos_count }
+        #data = {StartDate:year_month, 'RideName':activity.name, 'Distance': miles, 'Time':time, 'Elevation': elevation,'AthleteName': athlete.firstname + ' ' + athlete.lastname, 'StravaID':athlete.id, 'AverageSpeed':avg, 'MaxSpeed': max, 'Kudos': activity.kudos_count, 'jamesavg':avg }
+        data = {'johnavg':avg, 'StartDate':year_month}
         json_str = json.dumps(data)
-        with open("activities.json", "a") as f:
+        with open("avg.json", "a") as f:
             f.write(json_str + "\n")
 
 activity_get()

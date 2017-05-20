@@ -5,6 +5,7 @@
      <link rel="stylesheet" href="{{ url_for ('static',
          filename='lib/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="static/lib/css/introjs.css"/>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 
     <title>Strava Data - Simplified testing</title>
@@ -13,12 +14,12 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand">Strava Data - Simplified</a>
+                <a class="navbar-brand" href="/">Strava Data - Simplified</a>
             </div>
             <ul class="nav navbar-nav">
               <li><a href="/">Home</a></li>
-              <li><a href="/graphs">Graphs</a></li>
-              <li><a href="#">Info</a></li>
+              <li><a href="/graphs">Data</a></li>
+              <li><a href="/info">Riders</a></li>
               <li><a href="/auth">Authenticate</a></li>
             </ul>
         </div>
