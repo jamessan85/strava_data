@@ -10,7 +10,6 @@ DBS_NAME = os.getenv('MONGO_DB_NAME', 'strava')
 
 MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
-DBS_NAME = 'strava'
 COLLECTION_NAME = 'stravanew'
 
 def code():
