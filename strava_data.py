@@ -15,14 +15,9 @@ COLLECTION_NAME = 'stravanew'
 def code():
     return request.args.get('code')
 
-def get_code(data):
-    file_name = raw_input('Enter file name')
-    with open("C:/" + file_name + '.txt', 'a') as text_file:
-        text_file.write(data + '\n')
-
 def run():
     data = code()
-    get_code(data)
+
 
 
 @app.route('/')
