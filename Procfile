@@ -1,0 +1,1 @@
+web: gunicorn strava_data.py:app
