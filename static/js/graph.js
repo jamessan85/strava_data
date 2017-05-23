@@ -139,16 +139,20 @@ function makeGraphs(error, projectsJson) {
         .dimension(dateDim)
         .group(distance)
         .x(d3.time.scale().domain([minDate, maxDate]))
+        .margins({top: 20, left: 45, right: 10, bottom: 40})
         .xUnits(d3.time.months)
-        .yAxisLabel("Distance")
+        .yAxisLabel("Distance(mi)")
         .xAxisLabel("Month")
         .elasticY(true)
         .brushOn(false);
 
+
+
+
     totalDistanceRow
         .width(400)
         .height(200)
-        .margins({top: 20, left: 10, right: 10, bottom: 20})
+        .margins({top: 20, left: 10, right: 10, bottom: 33})
         .dimension(ridertotalDim)
         .group(riderTotalGroup)
         .gap(2);
@@ -156,7 +160,7 @@ function makeGraphs(error, projectsJson) {
     totalElevRow
         .width(400)
         .height(200)
-        .margins({top: 20, left: 10, right: 10, bottom: 20})
+        .margins({top: 20, left: 10, right: 10, bottom: 33})
         .dimension(biggestClimbersDim)
         .group(biggestclimberGroup)
         .gap(2);
@@ -203,129 +207,39 @@ function makeGraphs(error, projectsJson) {
         .width(500).height(300)
         .dimension(dateDim)
         .group(elevation)
-        .margins({top: 20, left: 45, right: 10, bottom: 35})
+        .margins({top: 20, left: 45, right: 10, bottom: 40})
         .xUnits(d3.time.months)
         .x(d3.time.scale().domain([minDate, maxDate]))
-        .yAxisLabel("Elevation")
+        .yAxisLabel("Elevation(ft)")
         .xAxisLabel("Month")
         .elasticY(true)
         .brushOn(false);
 
-    //SVG Chart
-
-    var maxData = d3.max(StravaData, function (d) {
-        return d.maxspeed;
-    });
-
-    var colorScale = d3.scale.linear()
-        .domain([0, d3.max(StravaData, function (d) {
-            return d.maxspeed
-        })])
-        .range(["blue", "red"]);
-
-    var heightScale = d3.scale.linear()
-        .domain([0, maxData])
-        .range([0, svgHeight]);
-
-    //creates a scale for the y axis
-    var yAxisScale = d3.scale.linear()
-        .domain([0, maxData])
-        .range([svgHeight, 0]);
-    //creates a scale for the x axis
-    var xAxisScale = d3.scale.ordinal()
-        .domain(StravaData.map(function (d) {
-            return d.Year;
-        }))
-        .rangeBands([0, svgWidth]);
-
-    var yAxis = d3.svg.axis()
-        .scale(yAxisScale)
-        .orient("left")
-        .ticks(10);
-
-    var xAxis = d3.svg.axis()
-        .scale(xAxisScale)
-        .orient("bottom")
-        .ticks(StravaData.length);
-
-    var canvas = d3.select("#test")
-        .append("svg")
-        .attr("width", canvasWidth)
-        .attr("height", canvasHeight);
-    // background colour if required .attr("style", "background-color:#ddd");
-
-    //appends y axis to the canvas
-    canvas.append("g")
-        .attr("class", "verticalAxis")  // style axis via CSS
-        .attr("transform", "translate(" + (margin.left - 5) + "," + margin.bottom + ")")
-        .call(yAxis);
-    //appends x axis to the canvas
-    canvas.append("g")
-        .attr("class", "axis")
-        .attr("transform", "translate(" + margin.left + "," + (canvasHeight - (margin.bottom - 2)) + ")")
-        .call(xAxis);
-    //creates title
-    canvas.append("g")
-        .append("text") //append text onto chart
-        .text("Bar Chart")//add the title
-        .attr("x", canvasWidth / 2) //divide by 2 centers it
-        .attr("y", 30) // height of y
-        .attr("class", "title"); //what it is
-
-    canvas.append("g")
-        .append("title")     /*code for default tooltip */
-        .text(function (d) {
-            return d
-        });
-
-    /*canvas.append("g")
-     .attr("width", svgWidth)
-     .attr("height", svgHeight)
-     .attr("style", "background-color:#ddd");
-     /!* added some style*!/*/
-
-    var svg = canvas.append('g')
-        .attr("transform", "translate(" + margin.left + "," + margin.bottom + ")");
-
-
-    //creates the chart
-    svg.selectAll("rect")
-        .data(StravaData)
-        .enter()
-        .append("rect")
-        .attr("x", function (d, i) {
-            return i * (svgWidth / StravaData.length);
-        })
-        .attr("y", function (d) {
-            return svgHeight - heightScale(d.maxspeed);
-        })
-        .attr("width", (svgWidth / StravaData.length) - spacing)
-        .attr("height", function (d) {
-            return heightScale(d.maxspeed)
-        })
-        .attr("fill", function (d) {
-            return (colorScale(d.maxspeed));
-        });
-
-    //add y axis text
-    svg.append("text")
-        .attr("class", "y label")
-        .attr("text-anchor", "end")
-        .attr("y", 6)
-        .attr("dy", ".75em")
-        .attr("transform", "rotate(-90)")
-        .text("Max Speed");
-
-    //add x axis text
-    svg.append("text")
-        .attr("class", "x label")
-        .attr("text-anchor", "end")
-        .attr("x", svgWidth / 2)
-        .attr("y", svgHeight - 10)
-        // .attr("transform", "rotate(90)")
-        .text("Years");
-
     dc.renderAll();
+
+function AddXAxis(totalDistanceRow, displayText)
+{
+    totalDistanceRow.svg()
+                .append("text")
+                .attr("class", "x-axis-label")
+                .attr("text-anchor", "middle")
+                .attr("x", totalDistanceRow.width()/2)
+                .attr("y", totalDistanceRow.height()-3.5)
+                .text(displayText);
+}
+AddXAxis(totalDistanceRow, "miles");
+
+function AddXAxis(totalElevRow, displayText)
+{
+    totalElevRow.svg()
+                .append("text")
+                .attr("class", "x-axis-label")
+                .attr("text-anchor", "middle")
+                .attr("x", totalDistanceRow.width()/2)
+                .attr("y", totalDistanceRow.height()-3.5)
+                .text(displayText);
+}
+AddXAxis(totalElevRow, "ft");
 
 }
 $( document ).ready(function () {

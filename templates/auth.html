@@ -1,12 +1,9 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Authenticate</title>
-</head>
-<body>
 {% extends "layout.html" %}
 {% block content %}
-<div class="jumbotron">
-<h1>Please authenticate</h1>
-<a href="https://www.strava.com/oauth/authorize?client_id=17090&response_type=code&redirect_uri=http://127.0.0.1:5000/authgood&approval_prompt=force"> click to authenticate </a>
+<div class="container">
+    <div class="jumbotron">
+    <h1>Please authenticate</h1>
+    <a href="https://www.strava.com/oauth/authorize?client_id=17090&response_type=code&redirect_uri=http://127.0.0.1:5000/authgood&approval_prompt=force"> click to authenticate </a>
+    </div>
 </div>
 {% endblock %}

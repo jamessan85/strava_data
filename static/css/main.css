@@ -172,19 +172,22 @@ rect:hover {
     justify-content: center;
     background-color: white ;
     padding: 10px;
-    margin: 10px;
 }
 
 .col-sm-4 h4 {
    text-align: center;
+    border-bottom: 1px solid #f96f2a ;
 }
+
+.col-sm-4 p::first-letter {
+    font-size: 20px;
+    color: #f96f2a;
+}
+
 g .axis .y {
     margin: 100px;
 }
 
-/*style tool tip*/
-
-/*for tooltip*/
 .hidden {
     display: none;
 }
@@ -215,6 +218,20 @@ button{
 
 .makerow {
     display: inline-block;
+}
+
+#chart-line-distance .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
+
+#elevation-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
+
+#elevation-chart.text.x-axis-label {
+    margin: 10px;
 }
 
 
