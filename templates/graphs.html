@@ -1,47 +1,47 @@
 
 {% extends "layout.html" %}
 {% block content %}
-        <div class="container">
+    <div class="container">
                         <button class="btn btn-success" type="button" autofocus onclick="javascript:introJs().start();">Start Tour!</button>
-
         <div class="row">
             <div class="col-md-4" data-step="1" data-intro="Choose the rider" style="font-weight: normal" data-position="top">
                 <h2>Select Rider</h2>
                 <div id="rider-select"></div>
                 <div><a class="reset" href="javascript:selectField.filterAll();hitspieChart.filterAll();totalDistanceRow.filterAll();totalElevRow.filterAll();dc.redrawAll();">reset all</a></div>
             </div>
-            <div class="col-md-4" data-step="2" data-intro="A total number of distances ridden, this can be filtered by a rider, year and quarter" style="font-weight: normal" data-position="top">
-            <h2>Distance Ridden</h2>
-            <div id="totals"></div><span>miles</span>
-            <div class="fact"></div>
-            </div>
-            <div class="col-md-4" data-step="3" data-intro="A total number of kudos awarded, this can be filtered per a rider, year and quarter" style="font-weight: normal" data-position="top">
-            <h2>Kudos</h2>
-            <span class="glyphicon glyphicon-thumbs-up"></span><div id="likes"></div>
-        </div>
         </div>
     <div class="row">
-        <div class="col-md-6" data-step="4" data-intro="A pie chart of the years the club have been riding, you click on them to filter by years" style="font-weight: normal" data-position="top">
-            <h2>Years</h2>
-            <div class="chart-ring-year"></div>
-            <a class="reset" href="javascript:hitspieChart.filterAll();dc.redrawAll();">reset pie</a>
-        </div>
-        <div class="col-md-6" data-step="5" data-intro="Pie Chart shows the quarters of each year, they can be clicked to filter as well" style="font-weight: normal" data-position="top">
-            <h2>Quarter</h2>
-            <div class="chart-ring-quarter"></div>
-            <a class="reset" href="javascript:quarterpieChart.filterAll();dc.redrawAll();">reset pie</a>
-        </div>
+            <div class="col-sm-12">
+                <div class="makerow" data-step="2" data-intro="A pie chart of the years the club have been riding, you click on them to filter by years" style="font-weight: normal" data-position="top">
+                <h2>Years</h2>
+                <div class="chart-ring-year"></div>
+                <a class="reset" href="javascript:hitspieChart.filterAll();dc.redrawAll();">reset pie</a>
+                </div>
+                <div class="makerow" data-step="3" data-intro="A pie chart displaying the four season the club have been riding, you click on them to filter by each quarter" style="font-weight: normal" data-position="top">
+                <h2>Quarter</h2>
+                <div class="chart-ring-quarter"></div>
+                <a class="reset" href="javascript:quarterpieChart.filterAll();dc.redrawAll();">reset pie</a>
+                </div>
+                <div class="makerow" data-step="4" data-intro="A total number of distances ridden, this can be filtered by a rider, year and quarter" style="font-weight: normal" data-position="top">
+                            <h2>Distance Ridden</h2>
+                <div id="totals"></div><span>miles</span>
+                </div>
+                <div class="makerow" data-step="5" data-intro="A total number of kudos awarded, this can be filtered per a rider, year and quarter" style="font-weight: normal" data-position="top">
+                <h2>Kudos</h2>
+                <span class="glyphicon glyphicon-thumbs-up"></span><div id="likes"></div>
+                </div>
+            </div>
     </div>
     <div class="row">
-        <div class="col-md-6" data-step="6" data-intro="A row chart comparing the total distance ridden by each rider, again this can be filtered by year and quarter" style="font-weight: normal" data-position="top">
-            <h2>Total Distance(Miles)</h2>
+        <div class="col-sm-6" data-step="6" data-intro="A row chart comparing the total distance ridden by each rider, again this can be filtered by year and quarter" style="font-weight: normal" data-position="top">
+            <h2>Total Distance(Miles) per rider</h2>
             <div id="rowchart"></div>
             <a class="reset" href="javascript:selectField.filterAll();hitspieChart.filterAll();totalDistanceRow.filterAll();totalElevRow.filterAll();dc.redrawAll();">reset all</a>
             </div>
-            <div class="col-md-6" data-step="7" data-intro="A row chart showing the total elevation a rider has ridden comparing against other riders, can be filtered by year and quarter" style="font-weight: normal" data-position="top">
+            <div class="col-sm-6" data-step="7" data-intro="A row chart showing the total elevation a rider has ridden comparing against other riders, can be filtered by year and quarter" style="font-weight: normal" data-position="top">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                <h2>Total Elevation(Ft)</h2>
+                <h2>Total Elevation(Ft) per rider</h2>
                 </div>
             <div class="chart-stage">
             <div id="rowchartelev"></div>
@@ -49,19 +49,18 @@
             </div>
         </div>
     </div>
-        <div class="row">
-        <div class="col-sm-6" data-step="8" data-intro="A bar chart showing how far each ride individual ride was in miles, can be filtered per a rider, year and quarter" style="font-weight: normal" data-position="top">
-            <h2 class="hider1">Distance of each ride</h2><span class="glyphicon glyphicon-circle-arrow-down hider1"></span>
-            <div id="chart-line-distance"></div>
-      </div>
-    </div>
     <div class="row">
-        <div class="col-sm-6" data-step="9" data-intro="A bar chart showing the total elevation of each ride, can be filtered per a rider, year and quarter" style="font-weight: normal" data-position="top">
-            <h2 class="hider3">Total Elevation of each ride</h2><span class="glyphicon glyphicon-circle-arrow-down hider3"></span>
-            <div id="elevation-chart"></div>
+        <div class="col-sm-12">
+            <div class="makerow" data-step="8" data-intro="A bar chart showing how far each ride individual ride was in miles, can be filtered per a rider, year and quarter" style="font-weight: normal" data-position="top">
+                <h2 >Distance ridden in a month</h2>
+                <div id="chart-line-distance"></div>
+            </div>
+            <div class="makerow" data-step="9" data-intro="A bar chart showing the total elevation of each ride, can be filtered per a rider, year and quarter" style="font-weight: normal" data-position="top">
+                <h2>Elevation ridden in a month</h2>
+                <div id="elevation-chart"></div>
+            </div>
         </div>
     </div>
- </div>
   <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
   <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>
   <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
@@ -74,4 +73,3 @@
   <script src="{{ url_for ('static', filename='js/script.js')}}"></script>
 
 {% endblock %}
-

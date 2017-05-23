@@ -60,10 +60,6 @@ def get_key():
                 f.write(json_str + "\n")
     activity_get()
 
-
-
-
-
 @app.route('/')
 def home():
     return render_template('home.html')

@@ -76,19 +76,6 @@ svg {
     padding: 10px;
 }
 
-#chart-line-distance{
-    display: none;
-}
-
-#chart-line-avg{
-    display: none;
-}
-
-#elevation-chart{
-    display: none;
-}
-
-
 svg {
    padding: -5px;
 }
@@ -140,7 +127,7 @@ rect .selected {
 .row {
     background-color: white;
     margin: 5px;
-    width: 90%
+    width: 100%
 }
 
 .axis text {
@@ -219,7 +206,14 @@ button{
     border: none;
 }
 
-.dc-chart {
+.col-sm-12 {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
+
+.makerow {
+    display: inline-block;
+}
+
+

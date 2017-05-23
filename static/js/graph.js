@@ -44,8 +44,9 @@ function makeGraphs(error, projectsJson) {
     //define dimensions
 
     var dateDim = ndx.dimension(function (d) {
-        return d.date;
+        return d.month
     });
+
     var riderDim = ndx.dimension(function (d) {
         return d.Name;
     });
@@ -79,7 +80,7 @@ function makeGraphs(error, projectsJson) {
     //groups
 
     var quarterGroup = quarter.group().reduceSum(function (d) {
-        return d.date;
+        return d.month;
     });
 
 
@@ -134,17 +135,15 @@ function makeGraphs(error, projectsJson) {
     //DC Charts
 
     distancelineChart
-        .width(1000).height(300)
+        .width(500).height(300)
         .dimension(dateDim)
         .group(distance)
         .x(d3.time.scale().domain([minDate, maxDate]))
-        .xUnits(d3.time.days)
+        .xUnits(d3.time.months)
         .yAxisLabel("Distance")
         .xAxisLabel("Month")
         .elasticY(true)
-        .brushOn(false)
-        .gap(10);
-
+        .brushOn(false);
 
     totalDistanceRow
         .width(400)
@@ -201,14 +200,16 @@ function makeGraphs(error, projectsJson) {
         .group(riderGroup);
 
     elevationChart
-        .width(1000).height(300)
+        .width(500).height(300)
         .dimension(dateDim)
         .group(elevation)
         .margins({top: 20, left: 45, right: 10, bottom: 35})
+        .xUnits(d3.time.months)
         .x(d3.time.scale().domain([minDate, maxDate]))
         .yAxisLabel("Elevation")
         .xAxisLabel("Month")
-        .elasticY(true);
+        .elasticY(true)
+        .brushOn(false);
 
     //SVG Chart
 
@@ -328,29 +329,5 @@ function makeGraphs(error, projectsJson) {
 
 }
 
-
-
-
-$(document).ready(function () {
-    $(".dc-select-menu").change (function() {
-		var val = $(this).val();
- 		if(val == "Alex White") {
-    	$(".alex").show();
-    	}
-    	else if(val == "James Sanderson") {
- 		    $(".alex").show();
-        }
-    });
-
-    $(".hider1").click(function () {
-        $("#chart-line-distance").slideToggle();
-    });
-    $(".hider2").click(function () {
-        $("#rowchart").slideToggle();
-    });
-    $(".hider3").click(function () {
-        $("#elevation-chart").slideToggle();
-    });
-});
 
 
