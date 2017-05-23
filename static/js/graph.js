@@ -329,5 +329,9 @@ function makeGraphs(error, projectsJson) {
 
 }
 
+if(window.innerHeight > window.innerWidth){
+    alert("Please rotate your device, this page is best viewed in landscape!");
+}
+
 
 
