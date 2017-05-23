@@ -163,6 +163,7 @@ rect:hover {
 .infobox {
     display: flex;
     flex-direction: row;
+    flex-flow: wrap;
 }
 
 .col-sm-4 {
