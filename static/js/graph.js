@@ -328,10 +328,12 @@ function makeGraphs(error, projectsJson) {
     dc.renderAll();
 
 }
+$( document ).ready(function () {
+    if(window.innerHeight > window.innerWidth){
+        alert("Please rotate your device, this page is best viewed in landscape!");
+    }
+});
 
-if(window.innerHeight > window.innerWidth){
-    alert("Please rotate your device, this page is best viewed in landscape!");
-}
 
 
 
