@@ -14,15 +14,6 @@ var totalElevRow = dc.rowChart("#rowchartelev");
 
 function makeGraphs(error, projectsJson) {
 
-    var svgWidth = 800,
-        svgHeight = 300;
-    var spacing = 0.5;
-
-    var margin = {top: 50, right: 0, bottom: 50, left: 50};
-    //applies margin to canvas width and height
-    var canvasWidth = svgWidth + margin.right + margin.left;
-    var canvasHeight = svgHeight + margin.top + margin.bottom;
-
     //Clean projectsJson data
     var StravaData = projectsJson;
 
@@ -82,23 +73,6 @@ function makeGraphs(error, projectsJson) {
     var quarterGroup = quarter.group().reduceSum(function (d) {
         return d.month;
     });
-
-
-   /*     if (rider == "Alex White") {
-            return 'Alex';
-        } else if (rider == "James Sanderson") {
-            return 'James';
-        } else if (rider == "David Scott") {
-            return 'Scotty';
-        } else if (rider == "Glen Kissack") {
-            return 'Glen';
-        } else if (rider == "John Prosser") {
-            return 'John';
-        }
-         else if (rider == "Tom White") {
-            return 'Tom';
-        }*/
-
 
 
     var biggestclimberGroup = biggestClimbersDim.group().reduceSum(function (d) {

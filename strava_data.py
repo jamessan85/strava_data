@@ -17,11 +17,6 @@ COLLECTION_NAME = 'stravanew'
 def get_key():
     GET_CODE = request.args.get('code')
 
-    # def get_code(data):
-    #     file_name = raw_input('Enter file name')
-    #     with open("C:/" + file_name + '.txt', 'a') as text_file:
-    #         text_file.write(data + '\n')
-
     AUTH_CODE = GET_CODE
     MY_STRAVA_CLIENT_ID = 17090
     MY_STRAVA_CLIENT_SECRET = '0f9539d9badcf88fd4a5853a0173f709569c9f6d'
@@ -35,12 +30,6 @@ def get_key():
     client = Client(access_token=JAMES_TOKEN)
     athlete = client.get_athlete()
 
-    # def ath_data():
-    #     data = {'firstname': athlete.firstname, 'lasttname': athlete.lastname, 'id': athlete.id, 'city': athlete.city, 'friends': athlete.friend_count}
-    #     datafied = str(data)
-    #     json_data = json.dumps(datafied)
-    #     print json_data
-
     def activity_get():
         for activity in client.get_activities(after='2012', limit=0):
             miles = int(unithelper.miles(activity.distance))
@@ -52,11 +41,10 @@ def get_key():
             max = int(unithelper.miles_per_hour(activity.max_speed))
             data = {'Start Date': year_month, 'RideName': activity.name, 'Distance': miles, 'Time': time,
                     'Elevation': elevation, 'AthleteName': athlete.firstname + ' ' + athlete.lastname,
-                    'StravaID': athlete.id, 'AverageSpeed': avg, 'MaxSpeed': max, 'Kudos': activity.kudos_count,
-                    'jamesavg': avg}
+                    'StravaID': athlete.id, 'AverageSpeed': avg, 'MaxSpeed': max, 'Kudos': activity.kudos_count}
             # data = {'johnavg':avg, 'StartDate':year_month}
             json_str = json.dumps(data)
-            with open("C:/test.json", "a") as f:
+            with open("C:/activities.json", "a") as f:
                 f.write(json_str + "\n")
     activity_get()
 
