@@ -13,41 +13,6 @@ MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
 COLLECTION_NAME = 'stravanew'
 
-
-def get_key():
-    GET_CODE = request.args.get('code')
-
-    AUTH_CODE = GET_CODE
-    MY_STRAVA_CLIENT_ID = 17090
-    MY_STRAVA_CLIENT_SECRET = '0f9539d9badcf88fd4a5853a0173f709569c9f6d'
-
-    client = Client()
-
-    JAMES_TOKEN = client.exchange_code_for_token(client_id=MY_STRAVA_CLIENT_ID,
-                                                 client_secret=MY_STRAVA_CLIENT_SECRET,
-                                                 code=AUTH_CODE)
-
-    client = Client(access_token=JAMES_TOKEN)
-    athlete = client.get_athlete()
-
-    def activity_get():
-        for activity in client.get_activities(after='2012', limit=0):
-            miles = int(unithelper.miles(activity.distance))
-            time = str(activity.moving_time)
-            start_date = str(activity.start_date)
-            year_month = start_date[:10]
-            elevation = int(unithelper.feet(activity.total_elevation_gain))
-            avg = int(unithelper.miles_per_hour(activity.average_speed))
-            max = int(unithelper.miles_per_hour(activity.max_speed))
-            data = {'Start Date': year_month, 'RideName': activity.name, 'Distance': miles, 'Time': time,
-                    'Elevation': elevation, 'AthleteName': athlete.firstname + ' ' + athlete.lastname,
-                    'StravaID': athlete.id, 'AverageSpeed': avg, 'MaxSpeed': max, 'Kudos': activity.kudos_count}
-            # data = {'johnavg':avg, 'StartDate':year_month}
-            json_str = json.dumps(data)
-            with open("C:/activities.json", "a") as f:
-                f.write(json_str + "\n")
-    activity_get()
-
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -82,14 +47,17 @@ def strava_data():
         # Convert projects to a list in a JSON object and return the JSON data
         return json.dumps(list(projects))
 
-@app.route('/auth')
-def auth():
-    return render_template('auth.html')
 
-@app.route('/authgood')
-def exchange():
-    get_key()
-    return render_template('token_exchange.html')
+### for future use
+# @app.route('/auth')
+# def auth():
+#     return render_template('auth.html')
+
+### for future use
+# @app.route('/authgood')
+# def exchange():
+#     get_key()
+#     return render_template('token_exchange.html')
 
 @app.route('/info')
 def info():
