@@ -1,2 +1,4 @@
 key_exchange.py
 *.pyc
+auth.html
+token_exchange.html
