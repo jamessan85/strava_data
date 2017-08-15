@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f84fa51-42b9-44ac-84ae-7ef2d754d770" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/graph.js" afterPath="$PROJECT_DIR$/static/js/graph.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/info.html" afterPath="$PROJECT_DIR$/templates/info.html" />
-    </list>
+    <list default="true" id="7f84fa51-42b9-44ac-84ae-7ef2d754d770" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
