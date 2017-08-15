@@ -140,20 +140,18 @@ function makeGraphs(error, projectsJson) {
         .gap(2);
 
     numberDisplay1
-        .formatNumber(d3.format("d"))
+        .formatNumber(d3.format(".3s"))
         .valueAccessor(function (d) {
             return d;
         })
-        .group(totalDistance)
-        .formatNumber(d3.format("Miles"));
+        .group(totalDistance);
 
     numberDisplay2
-        .formatNumber(d3.format("d"))
+        .formatNumber(d3.format(".3s"))
         .valueAccessor(function (d) {
             return d;
         })
-        .group(totalLikes)
-        .formatNumber(d3.format("Miles"));
+        .group(totalLikes);
 
     hitspieChart
         .width(180)
