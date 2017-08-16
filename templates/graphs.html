@@ -1,4 +1,3 @@
-
 {% extends "layout.html" %}
 {% block content %}
     <div class="container">
@@ -7,6 +6,7 @@
             <div class="col-md-4" data-step="1" data-intro="Choose the rider" style="font-weight: normal" data-position="top">
                 <h2>Select Rider</h2>
                 <div id="rider-select"></div>
+                <!--Reset button to redraw all charts-->
                 <div><a class="reset" href="javascript:selectField.filterAll();hitspieChart.filterAll();totalDistanceRow.filterAll();totalElevRow.filterAll();dc.redrawAll();">reset all</a></div>
             </div>
         </div>
@@ -15,7 +15,8 @@
                 <div class="makerow" data-step="2" data-intro="A pie chart of the years the club have been riding, you click on them to filter by years" style="font-weight: normal" data-position="top">
                 <h2>Years</h2>
                 <div class="chart-ring-year"></div>
-                <a class="reset" href="javascript:hitspieChart.filterAll();dc.redrawAll();">reset pie</a>
+                <!--Reset button-->
+                    <a class="reset" href="javascript:hitspieChart.filterAll();dc.redrawAll();">reset pie</a>
                 </div>
                 <div class="makerow" data-step="3" data-intro="A pie chart displaying the four season the club have been riding, you click on them to filter by each quarter" style="font-weight: normal" data-position="top">
                 <h2>Quarter</h2>
@@ -36,6 +37,7 @@
         <div class="col-sm-6" data-step="6" data-intro="A row chart comparing the total distance ridden by each rider, again this can be filtered by year and quarter" style="font-weight: normal" data-position="top">
             <h2>Total Distance per rider</h2>
             <div id="rowchart"></div>
+            <!--Reset button to redraw all charts-->
             <a class="reset" href="javascript:selectField.filterAll();hitspieChart.filterAll();totalDistanceRow.filterAll();totalElevRow.filterAll();dc.redrawAll();">reset all</a>
             </div>
             <div class="col-sm-6" data-step="7" data-intro="A row chart showing the total elevation a rider has ridden comparing against other riders, can be filtered by year and quarter" style="font-weight: normal" data-position="top">

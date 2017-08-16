@@ -6,11 +6,11 @@ import os
 
 app = Flask(__name__)
 
+# mongo varibales for local server
 MONGO_URI = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
 DBS_NAME = os.getenv('MONGO_DB_NAME', 'strava')
 
-MONGODB_HOST = 'localhost'
-MONGODB_PORT = 27017
+# name of collection in mongo
 COLLECTION_NAME = 'stravanew'
 
 @app.route('/')
@@ -46,18 +46,6 @@ def strava_data():
         projects = collection.find(projection=FIELDS, limit=55000)
         # Convert projects to a list in a JSON object and return the JSON data
         return json.dumps(list(projects))
-
-
-### for future use
-# @app.route('/auth')
-# def auth():
-#     return render_template('auth.html')
-
-### for future use
-# @app.route('/authgood')
-# def exchange():
-#     get_key()
-#     return render_template('token_exchange.html')
 
 @app.route('/info')
 def info():
