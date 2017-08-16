@@ -6,9 +6,13 @@
 
 This site is for people who want to see their strava data in charts and graphs
 
+### What is Strava?
+
+Strava is a application used by athletes to log and track their runs, bike rides and swims along with a whole host of other activities. Strava has an API that can be used and was used by myself to capture athletes data in a JSON file to allow me use them as graphs.
+
 ### What does it do?
 
-Although not quite working it will allow anyone who is a member of the 'club' to login into the strava API and upload their data, they can then see this in the graphs and charts. Currently this has to be done manually. 
+Currently a separate feature but it will allow anyone who is a member of the 'club' to login into the strava API and upload their data, they can then see this in the graphs and charts. Currently this has to be done manually.
 
 ### How does it work?
 
