@@ -16,7 +16,7 @@ Currently a separate feature but it will allow anyone who is a member of the 'cl
 
 ### How does it work?
 
-Currently the strava data is returned by storing the auth code that is returned when a user authenticates, this is then passed into another python program that pulls in the required data into a json format, this is then uploaded to MongoDB from where the data can then be accessed through the web using flask. 
+The strava athletes data was captured using the strava API, the Strava Data was returned in a JSON format which was then uploaded to MongoDB from where the data can then be accessed through the web using flask.
 
 ## Features
 

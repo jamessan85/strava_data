@@ -1,7 +1,10 @@
+
+// Get data from /data
 queue()
     .defer(d3.json, "/data")
     .await(makeGraphs);
 
+// Create varibale and their id's to use in the html
 var distancelineChart = dc.barChart("#chart-line-distance");
 var hitspieChart = dc.pieChart(".chart-ring-year");
 var quarterpieChart = dc.pieChart(".chart-ring-quarter");
@@ -137,7 +140,7 @@ function makeGraphs(error, projectsJson) {
         .gap(2);
 
     numberDisplay1
-        .formatNumber(d3.format(".3s"))
+        .formatNumber(d3.format(".3s"))//use .3s to show in decimals in the thousands, ends with a K
         .valueAccessor(function (d) {
             return d;
         })
@@ -186,18 +189,20 @@ function makeGraphs(error, projectsJson) {
 
     dc.renderAll();
 
-// function AddXAxis(totalDistanceRow, displayText)
-// {
-//     totalDistanceRow.svg()
-//                 .append("text")
-//                 .attr("class", "x-axis-label")
-//                 .attr("text-anchor", "middle")
-//                 .attr("x", totalDistanceRow.width()/2)
-//                 .attr("y", totalDistanceRow.height()-3.5)
-//                 .text(displayText);
-// }
-// AddXAxis(totalDistanceRow, "miles");
+// add x axis labels to DC row charts
+function AddXAxis(totalDistanceRow, displayText)
+{
+    totalDistanceRow.svg()
+                .append("text")
+                .attr("class", "x-axis-label")
+                .attr("text-anchor", "middle")
+                .attr("x", totalDistanceRow.width()/2)
+                .attr("y", totalDistanceRow.height()-3.5)
+                .text(displayText);
+}
+AddXAxis(totalDistanceRow, "miles");
 
+// add x axis labels to DC row charts
 function AddXAxis(totalElevRow, displayText)
 {
     totalElevRow.svg()
@@ -211,6 +216,8 @@ function AddXAxis(totalElevRow, displayText)
 AddXAxis(totalElevRow, "ft");
 
 }
+
+//Show message on mobile devices to view in landscape
 $( document ).ready(function () {
     if(window.innerHeight > window.innerWidth){
         alert("Please rotate your device, this page is best viewed in landscape!");
