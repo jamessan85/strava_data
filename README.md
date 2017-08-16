@@ -8,7 +8,7 @@ This site is for people who want to see their strava data in charts and graphs
 
 ### What is Strava?
 
-Strava is a application used by athletes to log and track their runs, bike rides and swims along with a whole host of other activities. Strava has an API that can be used and was used by myself to capture athletes data in a JSON file to allow me use them as graphs.
+{strava.com} is a application used by athletes to log and track their runs, bike rides and swims along with a whole host of other activities. Strava has an API that can be used and was used by myself to capture athletes data in a JSON file to allow me use them as graphs.
 
 ### What does it do?
 
@@ -21,7 +21,7 @@ Currently the strava data is returned by storing the auth code that is returned 
 ## Features
 
 ### Exisisting Features
-- If running on localhost it will save a activities.json file to the C: allowing you to upload to the MongoDB
+- Fully functional charts and graphs that change on the fly, quickly see your information, your own information and other peoples information. Compare yourself against your friends.
 
 ### Features to implement
 - User base features

@@ -120,9 +120,6 @@ function makeGraphs(error, projectsJson) {
         .elasticY(true)
         .brushOn(false);
 
-
-
-
     totalDistanceRow
         .width(400)
         .height(200)
@@ -189,17 +186,17 @@ function makeGraphs(error, projectsJson) {
 
     dc.renderAll();
 
-function AddXAxis(totalDistanceRow, displayText)
-{
-    totalDistanceRow.svg()
-                .append("text")
-                .attr("class", "x-axis-label")
-                .attr("text-anchor", "middle")
-                .attr("x", totalDistanceRow.width()/2)
-                .attr("y", totalDistanceRow.height()-3.5)
-                .text(displayText);
-}
-AddXAxis(totalDistanceRow, "miles");
+// function AddXAxis(totalDistanceRow, displayText)
+// {
+//     totalDistanceRow.svg()
+//                 .append("text")
+//                 .attr("class", "x-axis-label")
+//                 .attr("text-anchor", "middle")
+//                 .attr("x", totalDistanceRow.width()/2)
+//                 .attr("y", totalDistanceRow.height()-3.5)
+//                 .text(displayText);
+// }
+// AddXAxis(totalDistanceRow, "miles");
 
 function AddXAxis(totalElevRow, displayText)
 {
