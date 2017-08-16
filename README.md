@@ -31,7 +31,7 @@ Currently the strava data is returned by storing the auth code that is returned 
 - dc.js features
 	- Create a Max Speed chart	 
 
-##Tech Used
+## Tech Used
 - [dc.js]{https://dc-js.github.io/dc.js/}
 	- dc.js is used to to create the grapahs
 
