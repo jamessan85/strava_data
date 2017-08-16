@@ -8,7 +8,7 @@ This site is for people who want to see their strava data in charts and graphs
 
 ### What is Strava?
 
-{https://www.strava.com} is a application used by athletes to log and track their runs, bike rides and swims along with a whole host of other activities. Strava has an API that can be used and was used by myself to capture athletes data in a JSON file to allow me use them as graphs.
+[Strava.com](https://www.strava.com) is a application used by athletes to log and track their runs, bike rides and swims along with a whole host of other activities. Strava has an API that can be used and was used by myself to capture athletes data in a JSON file to allow me use them as graphs.
 
 ### What does it do?
 
@@ -32,19 +32,19 @@ The strava athletes data was captured using the strava API, the Strava Data was 
 	- Create a Max Speed chart	 
 
 ## Tech Used
-- [dc.js]{https://dc-js.github.io/dc.js/}
+- [dc.js](https://dc-js.github.io/dc.js/)
 	- dc.js is used to to create the grapahs
 
-- [d3.js]{https://d3js.org/}
+- [d3.js](https://d3js.org/)
 	- this works along side dc.js to create the graphs
 
-- [bootstrap]{http://getbootstrap.com/}
+- [bootstrap](http://getbootstrap.com/)
 	- for the responsive layout of the site
 
-- [flask]{http://flask.pocoo.org}
+- [flask](http://flask.pocoo.org)
 	- used for building a web app in python
 
-- [MongoDB]{https://www.mongodb.com/}
+- [MongoDB](https://www.mongodb.com/)
 	- stores the json data retrieved from the strava API
 
 ## Contributing
