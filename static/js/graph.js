@@ -147,7 +147,7 @@ function makeGraphs(error, projectsJson) {
         .group(totalDistance);
 
     numberDisplay2
-        .formatNumber(d3.format(".3s"))
+        .formatNumber(d3.format(".3s"))//use .3s to show in decimals in the thousands, ends with a K
         .valueAccessor(function (d) {
             return d;
         })
@@ -189,8 +189,8 @@ function makeGraphs(error, projectsJson) {
 
     dc.renderAll();
 
-// add x axis labels to DC row charts
-function AddXAxis(totalDistanceRow, displayText)
+// add x axis labels to DC row chart totalDistanceRow
+function AddXAxis1(totalDistanceRow, displayText)
 {
     totalDistanceRow.svg()
                 .append("text")
@@ -200,10 +200,10 @@ function AddXAxis(totalDistanceRow, displayText)
                 .attr("y", totalDistanceRow.height()-3.5)
                 .text(displayText);
 }
-AddXAxis(totalDistanceRow, "miles");
+AddXAxis1(totalDistanceRow, "miles");
 
-// add x axis labels to DC row charts
-function AddXAxis(totalElevRow, displayText)
+// add x axis labels totalElevRow
+function AddXAxis2(totalElevRow, displayText)
 {
     totalElevRow.svg()
                 .append("text")
@@ -213,7 +213,7 @@ function AddXAxis(totalElevRow, displayText)
                 .attr("y", totalDistanceRow.height()-3.5)
                 .text(displayText);
 }
-AddXAxis(totalElevRow, "ft");
+AddXAxis2(totalElevRow, "ft");
 
 }
 

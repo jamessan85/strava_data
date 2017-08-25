@@ -15,6 +15,27 @@ body {
     background-attachment: fixed;
 }
 
+/* add some margins to the spans to help space them */
+span {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* big button on hmome page */
+.btn-warning {
+    width: 300px;
+    height: 100px;
+    background-color: #f96f2a;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.btn-warning:hover {
+    background-color: #f96f2a;
+    opacity: 0.5;
+}
+
+
 .navbar {
     background-color: #f96f2a;
 }
