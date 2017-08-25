@@ -1,11 +1,6 @@
 p, h1, h2, h3, h4, li {
     font-family: 'Poppins', sans-serif;
 }
-.col-sm-12 {
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-}
 
 body {
     -moz-background-size: cover;
@@ -150,6 +145,7 @@ rect .selected {
 
 .row {
     background-color: white;
+    border: 1px solid black;
     margin: 3px;
     width: 100%
 }
@@ -238,6 +234,7 @@ button{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: white;
 }
 
 .makerow {
