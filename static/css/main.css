@@ -149,8 +149,8 @@ rect .selected {
 }
 
 .row {
-    background-color: white;
-    margin: 5px;
+    background-color: transparent;
+    margin: 3px;
     width: 100%
 }
 
