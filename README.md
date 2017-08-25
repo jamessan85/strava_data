@@ -56,7 +56,7 @@ The strava athletes data was captured using the strava API, the Strava Data was 
 
 
 ## Testing
-Testing has been carried by colleagues of mine and reported back any issues.  
+Testing has been carried by colleagues of mine and issues reported back.
 
 ### Issues Found
 - Calender months were over lapping each other in the bar charts preventing some of it from being unreadable.
@@ -82,7 +82,7 @@ Testing has been carried by colleagues of mine and reported back any issues.
 <br></br>
 
 
-- Initially I wanted to create a line chart instead of bar charts to so you can easily see the peaks and troughs, unfortauntley due to some of the data being ridden indoors this skewed the data as it was inconsistent and make the line graphs unreadable. 
+- Initially I wanted to create a line chart instead of bar charts so you can easily see the peaks and troughs, unfortunately due to some of the data being ridden indoors this skewed the data as it was inconsistent and make the line graphs unreadable.
 - The solution for this was to switch the line charts to bar charts as the indoor training did not work well with the line charts
 
 
