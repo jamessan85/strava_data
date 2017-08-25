@@ -66,7 +66,7 @@ Testing has been carried by colleagues of mine and reported back any issues.
     transform: rotate(-45deg);
 }
 ``` 
-
+<br></br>
 - Users found view of the charts was not good on mobile devices when viewed in portrait mode.
 - Solution was to add a bit of javascript to alert users that they should rotate their device to landscape to get the best viewing experience on mobile devices.
 ```$( document ).ready(function () {
@@ -75,13 +75,14 @@ Testing has been carried by colleagues of mine and reported back any issues.
     }
 });   
 ```
-
+<br></br>
 - The <b>numberDisplay's</b>  were jumping around the page when a different set of data was being used, this was because of the animation it was showing many more digits before selecting the number so this was the reason it would cause the view to jump around.
 - .3s was added to the number format so it would show the number with a k to indicate thousands, this prevented the page from jumping around.
 ```.formatNumber(d3.format(".3s"))```
+<br></br>
 
 
 - Initially I wanted to create a line chart instead of bar charts to so you can easily see the peaks and troughs, unfortauntley due to some of the data being ridden indoors this skewed the data as it was inconsistent and make the line graphs unreadable. 
-- The solution for this was to switch the line charts to be charts
+- The solution for this was to switch the line charts to bar charts as the indoor training did not work well with the line charts
 
 
