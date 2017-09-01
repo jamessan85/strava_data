@@ -9,7 +9,7 @@ import os
 MY_STRAVA_CLIENT_ID = 17090
 MY_STRAVA_CLIENT_SECRET = '0f9539d9badcf88fd4a5853a0173f709569c9f6d'
 
-MONGO_URI = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
+MONGOHQ_URL = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
 DBS_NAME = os.getenv('MONGO_DB_NAME', 'strava')
 COLLECTION_NAME = 'strava_test'
 COLLECTION_NAME1 = 'strava_code'
