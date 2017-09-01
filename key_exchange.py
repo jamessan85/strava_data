@@ -1,6 +1,6 @@
 from stravalib.client import Client, unithelper
 from flask import Flask, render_template, request
-from strava_data import *
+import strava_data
 from pymongo import MongoClient
 import json
 import datetime
@@ -18,7 +18,7 @@ collection  = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME]
 collection1  = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME1]
 
 def activities():
-    AUTH_CODE = code()  
+    AUTH_CODE = strava_data.code()  
     client = Client()
     STORED_TOKEN = client.exchange_code_for_token(client_id=MY_STRAVA_CLIENT_ID,
                                                     client_secret=MY_STRAVA_CLIENT_SECRET,
@@ -65,4 +65,4 @@ def activities_schedule():
             data = {'Start Date':year_month, 'Ride Name':activity.name, 'Distance(Mi)': miles, 'Time':time, 'Elevation (Ft)': elevation, 'Athlete Name': athlete.firstname + ' ' + athlete.lastname, 'Strava ID':athlete.id, 'Average Speed(Mph)':avg, 'Max Speed': max, 'Kudos': activity.kudos_count}
             collection.insert_one(data)
 
-activities_schedule()           
+#activities_schedule()           
