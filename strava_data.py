@@ -96,7 +96,7 @@ def exchange():
     code()
     activities()
     store_code()
-    return render_template('token_exchange.html')    
+    return render_template('graphs.html')    
 
 if __name__ == '__main__':
     app.run()
