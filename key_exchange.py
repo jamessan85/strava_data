@@ -1,6 +1,6 @@
 from stravalib.client import Client, unithelper
 from flask import Flask, render_template, request
-from strava_data import *
+from strava_data import code
 from pymongo import MongoClient
 import json
 import datetime
