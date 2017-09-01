@@ -9,13 +9,13 @@ import os
 MY_STRAVA_CLIENT_ID = 17090
 MY_STRAVA_CLIENT_SECRET = '0f9539d9badcf88fd4a5853a0173f709569c9f6d'
 
-MONGOHQ_URL = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
+MONGO_URI = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
 DBS_NAME = os.getenv('MONGO_DB_NAME', 'strava')
 COLLECTION_NAME = 'strava_test'
 COLLECTION_NAME1 = 'strava_code'
 
-collection  = MongoClient(MONGOHQ_URL)[DBS_NAME][COLLECTION_NAME]
-collection1  = MongoClient(MONGOHQ_URL)[DBS_NAME][COLLECTION_NAME1]
+collection  = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME]
+collection1  = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME1]
 
 def activities():
     AUTH_CODE = code()  

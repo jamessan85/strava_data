@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 
 # mongo varibales for local server
-MONGOHQ_URL = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
+MONGO_URI = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
 DBS_NAME = os.getenv('MONGO_DB_NAME', 'strava')
 
 # name of collection in mongo
@@ -19,8 +19,8 @@ MY_STRAVA_CLIENT_SECRET = '0f9539d9badcf88fd4a5853a0173f709569c9f6d'
 
 COLLECTION_NAME1 = 'strava_code'
 
-collection  = MongoClient(MONGOHQ_URL)[DBS_NAME][COLLECTION_NAME]
-collection1  = MongoClient(MONGOHQ_URL)[DBS_NAME][COLLECTION_NAME1]
+collection  = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME]
+collection1  = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME1]
 
 def activities():
     AUTH_CODE = code()  
@@ -74,7 +74,7 @@ def strava_data():
 
     # Open a connection to MongoDB using a with statement such that the
     # connection will be closed as soon as we exit the with statement
-    with MongoClient(MONGOHQ_URL) as conn:
+    with MongoClient(MONGO_URI) as conn:
         # Define which collection we wish to access
         collection = conn[DBS_NAME][COLLECTION_NAME]
         # Retrieve a result set only with the fields defined in FIELDS
