@@ -14,8 +14,8 @@ DBS_NAME = os.getenv('MONGO_DB_NAME', 'strava')
 COLLECTION_NAME = 'strava_test'
 COLLECTION_NAME1 = 'strava_code'
 
-collection  = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME]
-collection1  = MongoClient(MONGO_URI)[DBS_NAME][COLLECTION_NAME1]
+collection  = MongoClient(MONGOHQ_URL)[DBS_NAME][COLLECTION_NAME]
+collection1  = MongoClient(MONGOHQ_URL)[DBS_NAME][COLLECTION_NAME1]
 
 def activities():
     AUTH_CODE = code()  
