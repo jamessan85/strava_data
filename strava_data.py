@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 from pymongo import MongoClient
+from stravalib.client import Client, unithelper
+from key_exchange import *
 import json
 import os
 
@@ -10,7 +12,10 @@ MONGO_URI = os.getenv('MONGODB_URI', 'mongodb://localhost:27017')
 DBS_NAME = os.getenv('MONGO_DB_NAME', 'strava')
 
 # name of collection in mongo
-COLLECTION_NAME = 'stravanew'
+COLLECTION_NAME = 'strava_test'
+
+def code():
+    return request.args.get('code')
 
 @app.route('/')
 def home():
@@ -49,6 +54,17 @@ def strava_data():
 @app.route('/info')
 def info():
     return render_template('info.html')
+
+@app.route('/auth')
+def auth():
+     return render_template('auth.html')
+
+@app.route('/authgood')
+def exchange():
+    code()
+    activities()
+    store_code()
+    return render_template('token_exchange.html')    
 
 if __name__ == '__main__':
     app.run()
