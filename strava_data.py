@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from pymongo import MongoClient
 from stravalib.client import Client, unithelper
-import key_exchange
+from key_exchange import *
 import json
 import os
 
@@ -62,8 +62,8 @@ def auth():
 @app.route('/authgood')
 def exchange():
     code()
-    key_exchange.activities()
-    key_exchange.store_code()
+    activities()
+    store_code()
     return render_template('token_exchange.html')    
 
 if __name__ == '__main__':
