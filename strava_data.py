@@ -30,7 +30,7 @@ def activities():
                                                     code=AUTH_CODE)
     client = Client(access_token=STORED_TOKEN)
     athlete = client.get_athlete()
-        
+
     for activity in client.get_activities(after='2012', limit=0):
         miles = int(unithelper.miles(activity.distance))
         time = str(activity.moving_time)
@@ -43,7 +43,14 @@ def activities():
         collection.insert_one(data)
 
 def store_code():
-    user_code = {"strava_code": code() }
+    AUTH_CODE = code()  
+    client = Client()
+    STORED_TOKEN = client.exchange_code_for_token(client_id=MY_STRAVA_CLIENT_ID,
+                                                    client_secret=MY_STRAVA_CLIENT_SECRET,
+                                                    code=AUTH_CODE)
+    client = Client(access_token=STORED_TOKEN)
+    athlete = client.get_athlete()
+    user_code = {"strava_code": code(), 'Athlete Name': athlete.firstname + ' ' + athlete.lastname, 'strava id':athlete.id}
     collection1.insert_one(user_code)
 
 def code():
@@ -96,7 +103,7 @@ def exchange():
     code()
     activities()
     store_code()
-    return render_template('graphs.html')    
+    return render_template('token_exchange.html')    
 
 if __name__ == '__main__':
     app.run()
