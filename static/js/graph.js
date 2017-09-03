@@ -38,7 +38,10 @@ function makeGraphs(error, projectsJson) {
     //define dimensions
 
     var dateDim = ndx.dimension(function (d) {
-        return d.month
+        year = d.date.getFullYear();
+        if (year >= 2012) {
+            return d.month
+        }
     });
 
     var riderDim = ndx.dimension(function (d) {
