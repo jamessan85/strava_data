@@ -123,7 +123,7 @@ function makeGraphs(error, projectsJson) {
         .xUnits(d3.time.months)
         .yAxisLabel("Distance(mi)")
         .xAxisLabel("Month")
-        .elasticY(true)
+        .elasticX(true)
         .brushOn(false);
 
     totalDistanceRow
@@ -132,7 +132,8 @@ function makeGraphs(error, projectsJson) {
         .margins({top: 20, left: 10, right: 10, bottom: 33})
         .dimension(ridertotalDim)
         .group(riderTotalGroup)
-        .gap(2);
+        .gap(2)
+        .xAxis().ticks(4);
 
     totalElevRow
         .width(400)
@@ -140,17 +141,18 @@ function makeGraphs(error, projectsJson) {
         .margins({top: 20, left: 10, right: 10, bottom: 33})
         .dimension(biggestClimbersDim)
         .group(biggestclimberGroup)
-        .gap(2);
+        .gap(2)
+        .xAxis().ticks(4);
 
     numberDisplay1
-        .formatNumber(d3.format(".3s"))//use .3s to show in decimals in the thousands, ends with a K
+        .formatNumber(d3.format(".2s"))//use .2s to show in decimals in the thousands, ends with a K
         .valueAccessor(function (d) {
             return d;
         })
         .group(totalDistance);
 
     numberDisplay2
-        .formatNumber(d3.format(".3s"))//use .3s to show in decimals in the thousands, ends with a K
+        .formatNumber(d3.format(".2s"))//use .2s to show in decimals in the thousands, ends with a K
         .valueAccessor(function (d) {
             return d;
         })
