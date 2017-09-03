@@ -5,13 +5,13 @@ queue()
     .await(makeGraphs);
 
 // Create varibale and their id's to use in the html
-var distancelineChart = dc.barChart("#chart-line-distance");
+var distancelineChart = dc.lineChart("#chart-line-distance");
 var hitspieChart = dc.pieChart(".chart-ring-year");
 var quarterpieChart = dc.pieChart(".chart-ring-quarter");
 selectField = dc.selectMenu("#rider-select");
 var numberDisplay1 = dc.numberDisplay("#totals");
 var numberDisplay2 = dc.numberDisplay("#likes");
-var elevationChart = dc.barChart("#elevation-chart");
+var elevationChart = dc.lineChart("#elevation-chart");
 var totalDistanceRow = dc.rowChart("#rowchart");
 var totalElevRow = dc.rowChart("#rowchartelev");
 
@@ -92,8 +92,16 @@ function makeGraphs(error, projectsJson) {
     var riderGroup = riderDim.group();
 
     var distance = dateDim.group().reduceSum(function (d) {
-        return d.distance;
+        // distance1 = d.distance; 
+        //     if (distance1 >= 10) {
+                return d.distance;
+            // }
     });
+
+    //  year = d.date.getFullYear();
+    //     if (year >= 2012) {
+    //         return d.month
+    //     }
 
     var totalDistance = ndx.groupAll().reduceSum(function (d) {
         return d.distance;
@@ -119,11 +127,13 @@ function makeGraphs(error, projectsJson) {
         .dimension(dateDim)
         .group(distance)
         .x(d3.time.scale().domain([minDate, maxDate]))
+        .renderArea(false)
+        .brushOn(false)
         .margins({top: 20, left: 45, right: 10, bottom: 40})
         .xUnits(d3.time.months)
         .yAxisLabel("Distance(mi)")
         .xAxisLabel("Month")
-        .elasticX(true)
+        .elasticY(true)
         .brushOn(false);
 
     totalDistanceRow

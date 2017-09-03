@@ -106,7 +106,7 @@ svg {
 }
 
 .line {
-    fill: steelblue;
+    fill:transparent;
 }
 
 rect .selected {
